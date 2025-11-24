@@ -212,6 +212,23 @@ function deleteTask(id) {
     renderTasks();
 }
 
+// ---------- Clock ----------
+function updateClock() {
+    const now = new Date();
+    const options = {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    };
+    const timeString = now.toLocaleTimeString("en-IN", options);
+    const clockEl = document.getElementById("clock");
+    if (clockEl) clockEl.textContent = timeString;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
 // ---------- Theme Toggle ----------
 const themeToggleBtn = document.getElementById("theme-toggle");
 if (themeToggleBtn) {

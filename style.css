@@ -310,3 +310,11 @@ body.dark-mode .toggle-btn {
     background: rgba(56, 189, 248, 0.2);
     color: white;
 }
+
+/* ---------- Clock Style ---------- */
+.clock-display {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4aa8ff;
+    margin-top: 6px;
+}
