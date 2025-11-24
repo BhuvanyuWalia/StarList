@@ -211,3 +211,11 @@ function deleteTask(id) {
     saveTasks();
     renderTasks();
 }
+
+// ---------- Theme Toggle ----------
+const themeToggleBtn = document.getElementById("theme-toggle");
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+    });
+}
