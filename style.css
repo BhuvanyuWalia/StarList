@@ -289,3 +289,24 @@ body {
     font-size: 1.4rem;
     margin-bottom: 6px;
 }
+
+/* ---------- Dark Mode ---------- */
+body.dark-mode {
+    background: radial-gradient(circle at top, #1e293b 0, #0f172a 70%);
+}
+
+body.dark-mode .todo-app {
+    background: rgba(30, 41, 59, 0.45);
+    border-color: rgba(255, 255, 255, 0.09);
+    color: #f8fafc;
+}
+
+body.dark-mode .task-item {
+    background: rgba(30, 41, 59, 0.6);
+    color: #f1f5f9;
+}
+
+body.dark-mode .toggle-btn {
+    background: rgba(56, 189, 248, 0.2);
+    color: white;
+}
