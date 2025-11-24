@@ -289,3 +289,11 @@ body {
     font-size: 1.4rem;
     margin-bottom: 6px;
 }
+
+/* ---------- Clock Style ---------- */
+.clock-display {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4aa8ff;
+    margin-top: 6px;
+}
