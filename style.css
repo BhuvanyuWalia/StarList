@@ -1,0 +1,291 @@
+/* ---------- Base styles ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f2f6ff;
+    --card-bg: rgba(255, 255, 255, 0.55);
+    --glass: rgba(255, 255, 255, 0.45);
+    --border: rgba(255, 255, 255, 0.3);
+    --highlight: #4aa8ff;
+    --highlight-soft: rgba(74, 168, 255, 0.15);
+    --danger: #ff6b6b;
+    --text: #2c2c2c;
+    --muted: #6d6d6d;
+    --radius-xl: 18px;
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --transition-fast: 0.18s ease-out;
+    --font-main: "Inter", system-ui, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #d6e9ff 0, #f2f6ff 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    color: var(--text);
+}
+
+/* ---------- Layout ---------- */
+
+.app-wrapper {
+    width: 100%;
+    max-width: 500px;
+    padding: 24px 16px;
+}
+
+.todo-app {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    padding: 26px 22px 20px;
+}
+
+/* ---------- Header ---------- */
+
+.todo-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.todo-header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ---------- Input section ---------- */
+
+.todo-input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(74, 168, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.65);
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+#task-input:focus {
+    border-color: var(--highlight);
+    box-shadow: 0 0 0 3px rgba(74, 168, 255, 0.25);
+}
+
+#add-task-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4aa8ff, #6be1ff);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+#add-task-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(74, 168, 255, 0.3);
+}
+
+/* ---------- Toolbar ---------- */
+
+.todo-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filters {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+.filter-btn {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.filter-btn.active {
+    background-color: var(--highlight-soft);
+    color: var(--highlight);
+}
+
+.stats {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* ---------- Task list ---------- */
+
+.task-list {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* Scrollbar */
+.task-list::-webkit-scrollbar {
+    width: 6px;
+}
+.task-list::-webkit-scrollbar-thumb {
+    background: #c7d4e6;
+    border-radius: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(74, 168, 255, 0.15);
+    margin-bottom: 10px;
+    transition: var(--transition-fast);
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 168, 255, 0.18);
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 12px;
+}
+
+/* Checkbox */
+.task-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 1px solid #9ab6d6;
+    cursor: pointer;
+    background: #fff;
+    transition: var(--transition-fast);
+}
+
+.task-checkbox:checked {
+    background: linear-gradient(135deg, #42d392, #4aa8ff);
+    border-color: transparent;
+}
+
+.task-checkbox:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 0.75rem;
+    position: relative;
+    left: 4px;
+    top: 1px;
+}
+
+.task-text {
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.task-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+/* Action buttons */
+.icon-btn {
+    border: none;
+    background: transparent;
+    color: #7a8ba5;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.icon-btn:hover {
+    background-color: rgba(74, 168, 255, 0.2);
+    color: var(--highlight);
+}
+
+.icon-btn.delete {
+    color: #ff6b6b;
+}
+
+.icon-btn.delete:hover {
+    background: rgba(255, 107, 107, 0.12);
+}
+
+/* ---------- Footer ---------- */
+
+.todo-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.danger-btn {
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    background: rgba(255, 107, 107, 0.15);
+    color: var(--danger);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.danger-btn:hover {
+    background: rgba(255, 107, 107, 0.25);
+}
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.empty-state span {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
